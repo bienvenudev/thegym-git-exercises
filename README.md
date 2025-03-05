@@ -756,4 +756,17 @@ cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
 $ git push
 Everything up-to-date
 
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git pull 
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 987 bytes | 41.00 KiB/s, done.
+From https://github.com/bienvenudev/thegym-git-exercises
+   df4c5a2..966a4a4  main       -> origin/main
+Updating df4c5a2..966a4a4
+Fast-forward
+ readme1.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 ```
