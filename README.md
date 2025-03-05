@@ -316,7 +316,7 @@ $ git checkout -b ft/new-feature
 Switched to a new branch 'ft/new-feature'
 ```
 
-## Part 2 Challenge 8 - Challenge 10
+## Part 2 Challenge 8 - 10
 
 ```bash
 cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
@@ -411,4 +411,349 @@ Or undo this operation with:
 Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 1dbf205 create readme file
+```
+
+## Part 3 Challenge 1 - 10
+
+```bash
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git stash list
+stash@{0}: WIP on main: 0f03060 add part 2 bundles
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git stash pop
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)        
+        modified:   readme1.md
+
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git branch
+  ft/branch
+  ft/improved-branch-name
+* main
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/improved-branch-name
+M       readme1.md
+Switched to branch 'ft/improved-branch-name'
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/improved-branch-name)
+$ git checkout main
+Your branch is up to date with 'origin/main'.
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout -b ft/merge-conflict
+Switched to a new branch 'ft/merge-conflict'
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git checkout main
+M       readme1.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git branch ft/
+ft/branch                 ft/improved-branch-name   ft/merge-conflict 
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git branch ft/branch 
+fatal: a branch named 'ft/branch' already exists
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/branch
+error: Your local changes to the following files would be overwritten by checkout:
+        readme1.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)        
+        modified:   readme1.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git add readme1.md 
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/merge-conflict 
+M       readme1.md
+Switched to branch 'ft/merge-conflict'
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git add readme1.md
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git status
+On branch ft/merge-conflict
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme1.md
+
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git checkout main 
+M       readme1.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme1.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)        
+        modified:   readme1.md
+rcises (main)
+$ git add readme1.md
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git commit -m 'modify line 2'
+[main d01c143] modify line 2
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/merge-conflict
+Switched to branch 'ft/merge-conflict'
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git add readme1.md 
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git commit -m "modify line 2 to cause conflict"
+[ft/merge-conflict 4633b34] modify line 2 to cause conflict
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/merge-conflict 
+error: Your local changes to the following files would be overwritten by checkout:
+        readme1.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/merge-conflict 
+rcises (ft/merge-conflict)
+$ git checkout -
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git merge ft/merge-conflict
+Auto-merging readme1.md
+CONFLICT (content): Merge conflict in readme1.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main|MERGING)   
+$ git merge ft/merge-conflict 
+Already up to date.
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git checkout ft/merge-conflict 
+Switched to branch 'ft/merge-conflict'
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git pull origin main 
+From https://github.com/bienvenudev/thegym-git-exercises
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git log
+commit 4633b344c67f86491ee6a93125c0bcec249609bb (HEAD -> ft/merge-conflict)
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Wed Mar 5 11:39:28 2025 +0200
+
+    modify line 2 to cause conflict
+
+commit 0f03060f81b1017e011d430d0e5d9980279d4181 (origin/main)
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Wed Mar 5 11:29:29 2025 +0200
+
+    add part 2 bundles
+
+commit 5cb885aad7ebbda8915c8bef2702c74efceb7191
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Tue Mar 4 12:59:44 2025 +0200
+
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git fetch origin main
+From https://github.com/bienvenudev/thegym-git-exercises
+ * branch            main       -> FETCH_HEAD
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git log
+commit 4633b344c67f86491ee6a93125c0bcec249609bb (HEAD -> ft/merge-conflict)
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Wed Mar 5 11:39:28 2025 +0200
+
+    modify line 2 to cause conflict
+
+commit 0f03060f81b1017e011d430d0e5d9980279d4181 (origin/main)
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Wed Mar 5 11:29:29 2025 +0200
+
+    add part 2 bundles
+
+commit 5cb885aad7ebbda8915c8bef2702c74efceb7191
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Tue Mar 4 12:59:44 2025 +0200
+
+
+rcises (ft/merge-conflict)
+$ git merge main
+Updating 4633b34..f57cae1
+Fast-forward
+ readme1.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (ft/merge-conflict)
+$ git checkout -
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing added to commit but untracked files present (use "git add" to track)   
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git add .gitignore
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git commit -m "add tmp to git ignore"
+[main f1cb349] add tmp to git ignore
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git tag v1.0
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git log --oneline 
+f1cb349 (HEAD -> main, tag: v1.0) add tmp to git ignore
+f57cae1 (ft/merge-conflict) Merge branch 'ft/merge-conflict'
+4633b34 modify line 2 to cause conflict
+d01c143 modify line 2
+0f03060 (origin/main) add part 2 bundles
+5cb885a Implemented core functionality for new feature
+d87d826 (ft/improved-branch-name) Updated project readme
+1dbf205 create readme file
+3ec78ad chore: Create first and second files
+d839502 Create third and fourth files
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git tag
+v1.0
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git show v1.0 
+commit f1cb34988aeb5f8965548fa49602ef6e3ee7a7d4 (HEAD -> main, tag: v1.0)
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Wed Mar 5 11:58:47 2025 +0200
+
+    add tmp to git ignore
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..cad2309
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1 @@
++/tmp
+\ No newline at end of file
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ $ git log --pretty=oneline
+bash: $: command not found
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git log --pretty=oneline
+f1cb34988aeb5f8965548fa49602ef6e3ee7a7d4 (HEAD -> main, tag: v1.0) add tmp to git ignore
+f57cae107581723a39a3e02319ce1a1e05d422f2 (ft/merge-conflict) Merge branch 'ft/merge-conflict'
+4633b344c67f86491ee6a93125c0bcec249609bb modify line 2 to cause conflict       
+d01c14324233ce24e262ffc2ea40451bb8251b62 modify line 2
+0f03060f81b1017e011d430d0e5d9980279d4181 (origin/main) add part 2 bundles      
+5cb885aad7ebbda8915c8bef2702c74efceb7191 Implemented core functionality for new feature
+d87d82680f905dd4de0692a93c93bf1f7e10a0c0 (ft/improved-branch-name) Updated project readme
+1dbf205a0d0c23b256152f8682a7da6e4a77e8a8 create readme file
+3ec78ad1374b7a2fec7eb7f19c15f69989e92f4f chore: Create first and second files  
+d83950218d1b0f53e832b96ab167910d3343f8f2 Create third and fourth files
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git tag -a v0.7 5cb885a
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git tag
+v0.7
+v1.0
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git show v0.7 
+tag v0.7
+Tagger: bienvenudev <cbienvenu007@gmail.com>
+Date:   Wed Mar 5 12:03:48 2025 +0200
+
+my version 0.7
+
+commit 5cb885aad7ebbda8915c8bef2702c74efceb7191 (tag: v0.7)
+Author: bienvenudev <cbienvenu007@gmail.com>
+Date:   Tue Mar 4 12:59:44 2025 +0200
+
+    Implemented core functionality for new feature
+
+diff --git a/feature.txt b/feature.txt
+new file mode 100644
+index 0000000..b697352
+--- /dev/null
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git tag -d v0.7 
+Deleted tag 'v0.7' (was 774d47c)
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git push origin main 
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (12/12), 1.17 KiB | 399.00 KiB/s, done.
+Total 12 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), completed with 1 local object.
+To https://github.com/bienvenudev/thegym-git-exercises.git
+   0f03060..f1cb349  main -> main
+
+cbien@HP-321 MINGW64 ~/Documents/The-Gym/thegym-git-exercises (main)
+$ git push
+Everything up-to-date
+
 ```
